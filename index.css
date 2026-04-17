@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-display: "Space Grotesk";
+    --font-body: "DM Sans";
+    --font-mono: "Geist Mono";
+    --radius: 0.75rem;
+
+    --background: 0.98 0.008 230;
+    --foreground: 0.18 0.015 230;
+    --card: 1.0 0.004 230;
+    --card-foreground: 0.18 0.015 230;
+    --popover: 1.0 0.004 230;
+    --popover-foreground: 0.18 0.015 230;
+
+    --primary: 0.55 0.2 200;
+    --primary-foreground: 0.98 0.005 200;
+
+    --secondary: 0.94 0.01 230;
+    --secondary-foreground: 0.28 0.015 230;
+    --muted: 0.94 0.01 230;
+    --muted-foreground: 0.5 0.012 230;
+
+    --accent: 0.62 0.22 200;
+    --accent-foreground: 0.98 0.005 200;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.98 0.005 25;
+
+    --border: 0.9 0.008 230;
+    --input: 0.9 0.008 230;
+    --ring: 0.55 0.2 200;
+
+    --chart-1: 0.62 0.22 200;
+    --chart-2: 0.55 0.18 190;
+    --chart-3: 0.65 0.2 210;
+    --chart-4: 0.72 0.18 200;
+    --chart-5: 0.58 0.2 195;
+
+    --sidebar: 0.12 0.02 230;
+    --sidebar-foreground: 0.95 0.01 230;
+    --sidebar-primary: 0.62 0.22 200;
+    --sidebar-primary-foreground: 0.98 0.005 200;
+    --sidebar-accent: 0.7 0.2 200;
+    --sidebar-accent-foreground: 0.12 0.02 200;
+    --sidebar-border: 0.28 0.015 230;
+    --sidebar-ring: 0.62 0.22 200;
+  }
+
+  .dark {
+    --background: 0.12 0.02 230;
+    --foreground: 0.95 0.01 230;
+    --card: 0.16 0.018 230;
+    --card-foreground: 0.95 0.01 230;
+    --popover: 0.16 0.018 230;
+    --popover-foreground: 0.95 0.01 230;
+
+    --primary: 0.72 0.22 200;
+    --primary-foreground: 0.12 0.02 200;
+
+    --secondary: 0.22 0.02 230;
+    --secondary-foreground: 0.85 0.01 230;
+    --muted: 0.22 0.02 230;
+    --muted-foreground: 0.55 0.01 230;
+
+    --accent: 0.75 0.25 200;
+    --accent-foreground: 0.12 0.02 200;
+
+    --destructive: 0.55 0.22 25;
+    --destructive-foreground: 0.95 0.01 25;
+
+    --border: 0.28 0.015 230;
+    --input: 0.28 0.015 230;
+    --ring: 0.72 0.22 200;
+
+    --chart-1: 0.72 0.22 200;
+    --chart-2: 0.68 0.2 195;
+    --chart-3: 0.75 0.22 205;
+    --chart-4: 0.7 0.2 200;
+    --chart-5: 0.65 0.2 190;
+
+    --sidebar: 0.15 0.018 230;
+    --sidebar-foreground: 0.95 0.01 230;
+    --sidebar-primary: 0.72 0.22 200;
+    --sidebar-primary-foreground: 0.12 0.02 200;
+    --sidebar-accent: 0.75 0.25 200;
+    --sidebar-accent-foreground: 0.95 0.01 200;
+    --sidebar-border: 0.28 0.015 230;
+    --sidebar-ring: 0.72 0.22 200;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+}
+
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("/assets/fonts/SpaceGrotesk.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("/assets/fonts/DMSans.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("/assets/fonts/GeistMono.woff2") format("woff2");
+  font-display: swap;
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .gradient-aqua {
+    background: linear-gradient(
+      135deg,
+      oklch(0.96 0.04 200) 0%,
+      oklch(0.88 0.1 195) 50%,
+      oklch(0.92 0.06 210) 100%
+    );
+  }
+
+  .gradient-hero {
+    background: linear-gradient(
+      160deg,
+      oklch(0.97 0.02 220) 0%,
+      oklch(0.92 0.1 200) 35%,
+      oklch(0.96 0.05 190) 70%,
+      oklch(0.99 0.005 230) 100%
+    );
+  }
+
+  .gradient-navy {
+    background: linear-gradient(
+      135deg,
+      oklch(0.2 0.04 230) 0%,
+      oklch(0.15 0.03 220) 100%
+    );
+  }
+
+  .text-accent-bright {
+    color: oklch(0.45 0.2 200);
+    font-weight: 700;
+  }
+
+  .glow-aqua {
+    box-shadow: 0 0 32px oklch(0.55 0.2 200 / 0.35), 0 0 8px
+      oklch(0.62 0.22 200 / 0.2);
+  }
+
+  .shadow-elevated {
+    box-shadow: 0 20px 40px -8px rgba(0, 100, 150, 0.15), 0 8px 16px -4px
+      rgba(0, 80, 120, 0.08);
+  }
+
+  .shadow-subtle {
+    box-shadow: 0 2px 8px rgba(0, 80, 120, 0.07), 0 1px 3px rgba(0, 0, 0, 0.05);
+  }
+
+  .glass-card {
+    background: oklch(1.0 0.0 0 / 0.75);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid oklch(0.55 0.2 200 / 0.15);
+  }
+
+  .water-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .water-ripple::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      ellipse at 50% 120%,
+      oklch(0.62 0.22 200 / 0.12) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite;
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out both;
+  }
+
+  .animate-water-flow {
+    animation: water-flow 8s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .font-display {
+    font-family: var(--font-display), sans-serif;
+  }
+
+  .font-body {
+    font-family: var(--font-body), sans-serif;
+  }
+}
